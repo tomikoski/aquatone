@@ -161,6 +161,8 @@ func (s *Session) initPorts() {
 		ports = LargePortList
 	case "xlarge", "huge":
 		ports = XLargePortList
+	case "all", "yolo":
+		ports = AllPortList
 	default:
 		for _, p := range strings.Split(*s.Options.Ports, ",") {
 			port, err := strconv.Atoi(strings.TrimSpace(p))
