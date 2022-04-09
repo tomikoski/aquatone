@@ -147,7 +147,11 @@ func main() {
 
 	sess.Out.Important("Targets    : %d\n", len(targets))
 	sess.Out.Important("Threads    : %d\n", *sess.Options.Threads)
-	sess.Out.Important("Ports      : %s\n", strings.Trim(strings.Replace(fmt.Sprint(sess.Ports), " ", ", ", -1), "[]"))
+	if len(sess.Ports) < 65000 { 
+		sess.Out.Important("Ports      : %s\n", strings.Trim(strings.Replace(fmt.Sprint(sess.Ports), " ", ", ", -1), "[]"))
+	} else {
+		sess.Out.Important("Ports      : 65k ports, YOLO mode :)\n")
+	}
 	sess.Out.Important("Output dir : %s\n\n", *sess.Options.OutDir)
 
 	sess.EventBus.Publish(core.SessionStart)
