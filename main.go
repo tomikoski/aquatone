@@ -150,7 +150,7 @@ func main() {
 	if len(sess.Ports) < 65000 { 
 		sess.Out.Important("Ports      : %s\n", strings.Trim(strings.Replace(fmt.Sprint(sess.Ports), " ", ", ", -1), "[]"))
 	} else {
-		sess.Out.Important("Ports      : %d ports, YOLO mode :)\n", len(ports))
+		sess.Out.Important("Ports      : %d ports, YOLO mode :)\n", len(sess.Ports))
 	}
 	sess.Out.Important("Output dir : %s\n\n", *sess.Options.OutDir)
 
