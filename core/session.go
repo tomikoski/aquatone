@@ -162,7 +162,9 @@ func (s *Session) initPorts() {
 	case "xlarge", "huge":
 		ports = XLargePortList
 	case "all", "yolo":
-		ports = AllPortList
+		for a := 1; a < 65535; a++ {
+			ports = append(ports, a)
+     		}
 	default:
 		for _, p := range strings.Split(*s.Options.Ports, ",") {
 			port, err := strconv.Atoi(strings.TrimSpace(p))
