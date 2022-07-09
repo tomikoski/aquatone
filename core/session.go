@@ -162,7 +162,7 @@ func (s *Session) initPorts() {
 	case "xlarge", "huge":
 		ports = XLargePortList
 	case "all", "yolo":
-		for a := 1; a < 65535; a++ {
+		for a := 1; a < 65536; a++ {
 			ports = append(ports, a)
      		}
 	default:
